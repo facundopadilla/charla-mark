@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #0b0b0d;
+  color: #f4f1ea;
+  font-family: 'Geist', system-ui, sans-serif;
+  font-feature-settings: 'ss01', 'cv01';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+  }
+}
+
+@layer components {
+  /* Big editorial statistic number */
+  .stat-figure {
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  /* Subtle film grain overlay — one consistent atmosphere, not glow soup */
+  .grain::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Hide scrollbars inside scrollable slide regions while keeping scroll */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  background: rgba(62, 207, 142, 0.3);
+  color: #ffffff;
+}
