@@ -1,64 +1,72 @@
 import {
   Target,
-  Rocket,
+  MessageCircle,
   Video,
-  ShoppingBag,
-  Workflow,
-  Heart,
+  Users,
+  Tags,
+  Repeat,
   Headphones,
-  LineChart,
+  TrendingUp,
 } from 'lucide-react'
 import Slide from '../../components/Slide'
-import { Eyebrow, Title, Reveal } from '../../components/ui'
+import { Eyebrow, Title, Lead, Reveal } from '../../components/ui'
 
 const steps = [
   {
     n: 1,
     icon: Target,
-    title: 'Definir propuesta de valor y nicho',
-    text: 'En 2026 el nicho claro es requisito algorítmico, no una opción.',
+    title: 'Definí qué vendés y a quién',
+    text: 'En una frase clara, sin “vendo de todo”.',
+    example: '“Tortas de cumpleaños en Salta”, no “repostería”.',
   },
   {
     n: 2,
-    icon: Rocket,
-    title: 'Montar la presencia base (semana 1)',
-    text: 'WhatsApp Business con catálogo + Business AI + username @tunegocio; perfil IG/FB optimizado; opcional tienda en Tiendanube.',
+    icon: MessageCircle,
+    title: 'Armá tu WhatsApp Business',
+    text: 'Catálogo con fotos y precios + respuestas automáticas.',
+    example: 'Que al escribir “hola” ya reciba tus horarios y el menú.',
   },
   {
     n: 3,
     icon: Video,
-    title: 'Estrategia de contenido',
-    text: 'Video corto del producto en uso, gancho en 3s, contenido para guardar y compartir por DM; 3–5 hashtags + keywords.',
+    title: 'Mostrá tu producto en video',
+    text: 'Con el celular, y enganchá en los primeros 3 segundos.',
+    example: 'La torta saliendo del horno, no una foto quieta.',
   },
   {
     n: 4,
-    icon: ShoppingBag,
-    title: 'Activar social commerce',
-    text: 'Etiquetar productos, links de pago, probar live shopping y 3–5 microinfluencers por comisión.',
+    icon: Users,
+    title: 'Sumá quien te recomiende',
+    text: '3–5 cuentas chicas de tu zona, por canje o pago por video.',
+    example: 'Les mandás una torta y la muestran en sus historias.',
   },
   {
     n: 5,
-    icon: Workflow,
-    title: 'Captura y automatización',
-    text: 'Opt-in + flujos (bienvenida, carrito abandonado, posventa) con Brevo/Mailrelay + WhatsApp; CRM gratuito (HubSpot).',
+    icon: Tags,
+    title: 'Ordená tus clientes (gratis)',
+    text: 'Etiquetas de WhatsApp + una planilla. Ese es tu CRM.',
+    example: 'Etiquetas: “pidió”, “pagó”, “cliente que volvió”.',
   },
   {
     n: 6,
-    icon: Heart,
-    title: 'Fidelización',
-    text: 'Programa simple de puntos o referidos; email + WhatsApp segmentado, no difusión masiva.',
+    icon: Repeat,
+    title: 'Hacé que vuelvan',
+    text: 'Escribiles con un motivo, nunca spam.',
+    example: 'Tarjeta de sellos: en la 10ª compra, una gratis.',
   },
   {
     n: 7,
     icon: Headphones,
-    title: 'Atención y postventa',
-    text: 'Responder en <2 min (bot FAQs + humano para el cierre); encuesta postventa por WhatsApp + reseña en Google.',
+    title: 'Respondé rápido',
+    text: 'En minutos. Un bot para lo típico, vos para cerrar.',
+    example: 'El bot dice el precio; vos cerrás y pedís reseña en Google.',
   },
   {
     n: 8,
-    icon: LineChart,
-    title: 'Medir y optimizar',
-    text: 'Conversión por canal, tiempo de respuesta, recompra, CLV y NPS; A/B testing mensual.',
+    icon: TrendingUp,
+    title: 'Mirá un número y mejorá',
+    text: 'Arrancá con uno solo: ¿cuántos vuelven a comprar?',
+    example: 'Si cada mes recompran más, vas por buen camino.',
   },
 ]
 
@@ -67,8 +75,9 @@ export default function ActionPlan() {
     <Slide align="start" justify="center">
       <Eyebrow index={8} label="Plan de acción" />
       <Title className="max-w-4xl">Plan de acción en 8 pasos</Title>
+      <Lead>Sin vueltas técnicas: ocho pasos con ejemplos para arrancar esta semana.</Lead>
 
-      <div className="mt-10 grid w-full gap-4 sm:grid-cols-2">
+      <div className="mt-8 grid w-full gap-4 sm:grid-cols-2">
         {steps.map((s) => (
           <Reveal key={s.n}>
             <div className="flex h-full items-start gap-4 rounded-xl border border-line bg-surface/50 p-5">
@@ -78,11 +87,12 @@ export default function ActionPlan() {
               <div>
                 <div className="flex items-center gap-2">
                   <s.icon className="h-4 w-4 shrink-0 text-accent" strokeWidth={1.7} />
-                  <h3 className="font-display text-lg font-semibold leading-tight text-ink text-balance">
+                  <h3 className="font-display text-lg font-semibold leading-tight text-ink">
                     {s.title}
                   </h3>
                 </div>
                 <p className="mt-1.5 text-sm text-ink-dim leading-relaxed">{s.text}</p>
+                <p className="mt-1 text-sm italic text-ink-mute leading-snug">Ej: {s.example}</p>
               </div>
             </div>
           </Reveal>

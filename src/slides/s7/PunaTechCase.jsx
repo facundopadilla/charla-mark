@@ -28,7 +28,7 @@ const stack = [
 ]
 
 export default function PunaTechCase() {
-  const [video, setVideo] = useState(false)
+  const [video, setVideo] = useState(null)
 
   return (
     <Slide align="start" justify="center">
@@ -54,14 +54,28 @@ export default function PunaTechCase() {
             </div>
           </Reveal>
 
-          <Reveal>
+          <Reveal className="flex flex-col gap-3">
             <button
               type="button"
-              onClick={() => setVideo(true)}
-              className="flex w-full items-center justify-center gap-2 rounded-xl border border-accent/40 bg-accent/10 px-5 py-3 font-display font-semibold text-accent transition-colors hover:bg-accent/20"
+              onClick={() => setVideo({ id: 'DY0bssYN737', title: 'El video de más impacto' })}
+              className="flex w-full items-center gap-3 rounded-xl border border-gold/40 bg-gold/10 px-5 py-3 text-left transition-colors hover:bg-gold/20"
             >
-              <Play className="h-4 w-4 fill-current" strokeWidth={0} />
-              Ver el video (100% hecho con IA)
+              <Play className="h-4 w-4 shrink-0 fill-current text-gold" strokeWidth={0} />
+              <span>
+                <span className="block font-display font-semibold text-gold">El de más impacto</span>
+                <span className="block text-xs text-ink-mute">Personas reales, edición con IA</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setVideo({ id: 'DYN8P4ytaKG', title: 'Video 100% hecho con IA' })}
+              className="flex w-full items-center gap-3 rounded-xl border border-accent/40 bg-accent/10 px-5 py-3 text-left transition-colors hover:bg-accent/20"
+            >
+              <Play className="h-4 w-4 shrink-0 fill-current text-accent" strokeWidth={0} />
+              <span>
+                <span className="block font-display font-semibold text-accent">100% hecho con IA</span>
+                <span className="block text-xs text-ink-mute">Video y personajes generados</span>
+              </span>
             </button>
           </Reveal>
         </div>
@@ -79,23 +93,27 @@ export default function PunaTechCase() {
         $350.000 en pauta + US$5 de GLM 5.2 + US$20 de Claude. Eso fue todo.
       </Callout>
 
-      <Modal open={video} onClose={() => setVideo(false)} maxW="max-w-sm">
-        <div className="overflow-hidden rounded-xl border border-line bg-black">
-          <iframe
-            title="Video PunaTech hecho con IA"
-            src="https://www.instagram.com/p/DYN8P4ytaKG/embed"
-            className="h-[640px] w-full"
-            loading="lazy"
-          />
-        </div>
-        <a
-          href="https://www.instagram.com/p/DYN8P4ytaKG/"
-          target="_blank"
-          rel="noreferrer"
-          className="mt-3 flex items-center justify-center gap-1.5 text-sm text-ink-dim hover:text-ink"
-        >
-          Abrir en Instagram <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} />
-        </a>
+      <Modal open={Boolean(video)} onClose={() => setVideo(null)} maxW="max-w-sm">
+        {video && (
+          <>
+            <div className="overflow-hidden rounded-xl border border-line bg-black">
+              <iframe
+                title={video.title}
+                src={`https://www.instagram.com/p/${video.id}/embed`}
+                className="h-[640px] w-full"
+                loading="lazy"
+              />
+            </div>
+            <a
+              href={`https://www.instagram.com/p/${video.id}/`}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 flex items-center justify-center gap-1.5 text-sm text-ink-dim hover:text-ink"
+            >
+              Abrir en Instagram <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} />
+            </a>
+          </>
+        )}
       </Modal>
     </Slide>
   )
