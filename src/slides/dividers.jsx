@@ -65,9 +65,9 @@ export const Divider6 = () => (
 export const Divider7 = () => (
   <SectionDivider
     index={7}
-    title="Casos reales · 2024–2026"
-    subtitle="Negocios como el tuyo, con números concretos."
-    items={['Casos destacados', 'A toda escala', 'Patrones comunes']}
+    title="Casos reales"
+    subtitle="Una campaña de acá, hecha con IA, con números concretos."
+    items={['PunaTech 2026', 'IA que optimiza sola', 'Patrones comunes']}
     tone="gold"
   />
 )

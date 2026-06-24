@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Puna Tech 2026 — Informe Dia 13</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0a0a0a; color: #d0d0d0; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 28px 18px; }
+h1 { font-size: 24px; font-weight: 800; color: #fff; }
+.sub { font-size: 11px; color: #383838; margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 22px; }
+.chip { display:inline-block; padding:2px 10px; border-radius:20px; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-right:5px; margin-bottom:8px; }
+.c-purple{background:#1a0a33;color:#cc88ff;border:1px solid #cc88ff44;}
+.c-red{background:#1a0000;color:#ff5252;border:1px solid #ff525244;}
+.c-yellow{background:#1a1000;color:#ffcc00;border:1px solid #ffcc0044;}
+.c-green{background:#002200;color:#00e676;border:1px solid #00e67644;}
+.c-blue{background:#00101a;color:#40c4ff;border:1px solid #40c4ff44;}
+.c-orange{background:#1a0800;color:#ffaa44;border:1px solid #ffaa4444;}
+
+.alert{border-radius:8px;padding:13px 16px;margin-bottom:10px;font-size:13px;line-height:1.7;}
+.al-red{background:#0e0000;border:1px solid #ff525455;} .al-red strong{color:#ff5252;}
+.al-yellow{background:#0e0900;border:1px solid #ffcc0055;} .al-yellow strong{color:#ffcc00;}
+.al-green{background:#001100;border:1px solid #00e67655;} .al-green strong{color:#00e676;}
+.al-orange{background:#0e0600;border:1px solid #ffaa4455;} .al-orange strong{color:#ffaa44;}
+
+.sec{font-size:10px;font-weight:700;letter-spacing:2.5px;color:#2a2a2a;text-transform:uppercase;margin:24px 0 12px;padding-bottom:7px;border-bottom:1px solid #161616;}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:12px;}
+.kpis2{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:20px;}
+.kpi{background:#111;border:1px solid #1a1a1a;border-radius:7px;padding:13px 10px;}
+.kpi.win{background:#001800;border-color:#00e67644;}
+.kpi.warn{background:#0e0600;border-color:#ffaa4444;}
+.kpi .kl{font-size:9px;color:#333;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
+.kpi .kv{font-size:22px;font-weight:800;line-height:1;}
+.kpi .ks{font-size:10px;color:#2a2a2a;margin-top:4px;}
+.green{color:#00e676;} .yellow{color:#ffcc00;} .red{color:#ff5252;} .blue{color:#40c4ff;} .white{color:#fff;} .orange{color:#ffaa44;}
+
+/* PODIO */
+.podio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;}
+.pod{border-radius:10px;padding:16px 18px;position:relative;}
+.pod-1{background:#001a00;border:2px solid #00e676;}
+.pod-2{background:#0a0a00;border:1px solid #ffcc0066;}
+.pod-3{background:#0a0a0a;border:1px solid #40c4ff44;}
+.pod-rank{font-size:28px;font-weight:900;margin-bottom:4px;}
+.pod-1 .pod-rank{color:#00e676;}
+.pod-2 .pod-rank{color:#ffcc00;}
+.pod-3 .pod-rank{color:#40c4ff;}
+.pod-name{font-size:12px;font-weight:700;color:#ccc;margin-bottom:10px;}
+.pod-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.ps .pl{font-size:9px;color:#333;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.ps .pv{font-size:16px;font-weight:800;}
+.pod-1 .ps .pv{color:#00e676;}
+.pod-2 .ps .pv{color:#ffcc00;}
+.pod-3 .ps .pv{color:#40c4ff;}
+.pod-note{font-size:11px;color:#333;margin-top:10px;padding-top:8px;border-top:1px solid #1a1a1a;line-height:1.5;}
+
+/* TABLA */
+.tbl-wrap{overflow-x:auto;margin-bottom:20px;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+th{background:#0d0d0d;color:#2a2a2a;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;padding:9px 10px;text-align:left;border-bottom:1px solid #181818;white-space:nowrap;}
+td{padding:8px 10px;border-bottom:1px solid #131313;white-space:nowrap;vertical-align:middle;}
+tr:hover td{background:#0e0e0e;}
+tr.win1 td{background:#001800;}
+tr.win2 td{background:#0c0c00;}
+tr.warn td{background:#0a0600;}
+tr.dim td{opacity:.20;}
+.tn{font-weight:600;color:#ddd;}
+.tag-r{display:inline-block;font-size:9px;padding:2px 6px;border-radius:3px;background:#002244;color:#40c4ff;}
+.tag-i{display:inline-block;font-size:9px;padding:2px 6px;border-radius:3px;background:#111;color:#333;border:1px solid #1e1e1e;}
+.sc{display:inline-block;font-size:9px;padding:2px 7px;border-radius:10px;font-weight:700;}
+.sc-top{background:#002200;color:#00e676;}
+.sc-2{background:#111100;color:#ffcc00;}
+.sc-ok{background:#111;color:#444;border:1px solid #222;}
+.sc-slow{background:#110800;color:#ffaa44;}
+.sc-dead{background:#110000;color:#ff5252;}
+.sc-cut{background:#0a0000;color:#551111;border:1px solid #220000;}
+
+/* BUDGET */
+.budget-box{background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:18px 20px;margin-bottom:20px;}
+.bud-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #161616;font-size:13px;color:#444;}
+.bud-row:last-child{border:none;}
+.bud-row span:last-child{font-weight:600;color:#bbb;}
+.bud-row.red span:last-child{color:#ff5252;}
+.bud-row.green span:last-child{color:#00e676;}
+.bud-row.yellow span:last-child{color:#ffcc00;}
+.bud-row.orange span:last-child{color:#ffaa44;}
+.bud-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
+.bopt{border-radius:8px;padding:14px 16px;}
+.bopt-a{background:#001a00;border:1px solid #00e67644;}
+.bopt-b{background:#1a0800;border:1px solid #ffaa4444;}
+.bopt h4{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.bopt-a h4{color:#00e676;} .bopt-b h4{color:#ffaa44;}
+.bopt p{font-size:12px;color:#555;line-height:1.6;}
+.bopt p b{color:#999;}
+
+/* ACCIONES */
+.act-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px;}
+.act{background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:15px 17px;}
+.act h4{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
+.ah-red h4{color:#ff5252;} .ah-green h4{color:#00e676;} .ah-yellow h4{color:#ffcc00;} .ah-blue h4{color:#40c4ff;} .ah-orange h4{color:#ffaa44;}
+.act ul{list-style:none;}
+.act ul li{font-size:12px;color:#555;padding:5px 0;border-bottom:1px solid #161616;line-height:1.5;}
+.act ul li:last-child{border:none;}
+.act ul li b{color:#999;}
+
+/* TREND BAR */
+.trend-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.trend-label{font-size:10px;color:#333;width:70px;text-align:right;}
+.trend-bar{flex:1;background:#161616;border-radius:2px;height:14px;}
+.trend-fill{border-radius:2px;height:14px;}
+.trend-val{font-size:10px;font-weight:700;width:70px;}
+
+/* COMPARATIVA */
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.comp-box{background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:16px 18px;}
+.comp-box h4{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+.comp-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #161616;font-size:12px;color:#444;}
+.comp-row:last-child{border:none;}
+.comp-row span:last-child{font-weight:600;}
+
+footer{text-align:center;color:#1e1e1e;font-size:11px;padding:20px 0 6px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Puna Tech 2026 — Meta Ads Tiempo Real</h1>
+<div class="sub">Dia 13 · 27 Mayo 2026 · MAÑANA EMPIEZA EL EVENTO · datos completos 26-mayo</div>
+<div>
+  <span class="chip c-orange">EVENTO: MAÑANA 28 MAYO</span>
+  <span class="chip c-green">reel03 mantiene $16/vis — RECORD campana</span>
+  <span class="chip c-green">Reels: 100% del gasto (9 de 9)</span>
+  <span class="chip c-red">Saldo: ~$17,373 para 3 dias de evento</span>
+  <span class="chip c-purple">Acumulado: $178,065 / 4,062 vis totales</span>
+</div>
+
+<!-- ALERTAS -->
+<div class="alert al-orange">
+  <strong>MAÑANA EMPIEZA EL EVENTO — última ventana de optimización.</strong> El 28/Mayo arranca Puna Tech 2026. Hoy (27/Mayo) es el último momento para pausar ads ineficientes, ajustar presupuesto y asegurarse que los mejores reels tengan combustible para los 3 dias del evento. El algoritmo ya sabe cuáles son los ganadores. No tocar los que funcionan.
+</div>
+<div class="alert al-green">
+  <strong>MAY 26 — DÍA REEL TOTAL: $5,283 / 217 vis / $24 promedio.</strong> reel03 "Te Pagan Por Ir" sostuvo $16/vis todo el día (71 visitas, 145 views completos). reel02 "Noticias" aportó 63 visitas a $22. Los 4 reels principales (reel03-1A, reel02-1A, reel04-1B, reel04-1A) concentraron el 93% del gasto. Ninguna imagen recibió presupuesto — el CBO los abandonó por completo.
+</div>
+<div class="alert al-red">
+  <strong>PRESUPUESTO: JUSTO PARA EL EVENTO.</strong> Saldo estimado: ~$17,373 ARS. Al ritmo de mayo-26 ($5,283/día) el presupuesto dura ~3.3 dias — exacto para llegar al 30/mayo sin buffer. Si el CBO escala los reels ganadores, puede accelerar el gasto. Pausar NOA (1C) y reel01-1B ahorraría ~$370/día y extendería la cobertura.
+</div>
+
+<!-- KPIs MAYO 26 -->
+<div class="sec">26 Mayo 2026 — Día completo</div>
+<div class="kpis">
+  <div class="kpi win">
+    <div class="kl">Mejor costo/vis</div>
+    <div class="kv green">$16</div>
+    <div class="ks">reel03 1A Broad — récord campana</div>
+  </div>
+  <div class="kpi">
+    <div class="kl">Visitas totales</div>
+    <div class="kv white">217</div>
+    <div class="ks">$5,283 ARS gastados</div>
+  </div>
+  <div class="kpi">
+    <div class="kl">Costo/vis promedio</div>
+    <div class="kv green">$24</div>
+    <div class="ks">vs $31 el 25/mayo (-22%)</div>
+  </div>
+  <div class="kpi">
+    <div class="kl">Impresiones</div>
+    <div class="kv white">5,985</div>
+    <div class="ks">personas alcanzadas</div>
+  </div>
+</div>
+<div class="kpis2">
+  <div class="kpi">
+    <div class="kl">Acumulado API total</div>
+    <div class="kv white">$178,065</div>
+    <div class="ks">4,062 visitas — 13 días</div>
+  </div>
+  <div class="kpi">
+    <div class="kl">Costo/vis total histórico</div>
+    <div class="kv yellow">$44</div>
+    <div class="ks">vs $24 de mayo-26 (-45%)</div>
+  </div>
+  <div class="kpi warn">
+    <div class="kl">Saldo real estimado</div>
+    <div class="kv orange">~$17,373</div>
+    <div class="ks">ARS reales — justo 3 dias</div>
+  </div>
+  <div class="kpi">
+    <div class="kl">Dias al evento</div>
+    <div class="kv red">1</div>
+    <div class="ks">28-30 Mayo 2026 — MAÑANA</div>
+  </div>
+</div>
+
+<!-- PODIO -->
+<div class="sec">Podio — 26 Mayo (día completo)</div>
+<div class="podio">
+  <div class="pod pod-1">
+    <div class="pod-rank">#1</div>
+    <div class="pod-name">Ad-1A-reel03 — "Te Pagan Por Ir"<br><span style="font-size:10px;color:#336633">1A Broad Salta</span></div>
+    <div class="pod-stats">
+      <div class="ps"><div class="pl">$/visita</div><div class="pv">$16</div></div>
+      <div class="ps"><div class="pl">Visitas</div><div class="pv">71</div></div>
+      <div class="ps"><div class="pl">V100%</div><div class="pv">145</div></div>
+    </div>
+    <div class="pod-note">Sostuvo $16/vis durante todo el día (no fue un pico). 435 personas vieron el 25% y 145 lo terminaron completo. El CBO le dio el 22% del presupuesto diario. El hook "el único evento que te paga por ir" sigue siendo el más potente de toda la campaña.</div>
+  </div>
+  <div class="pod pod-2">
+    <div class="pod-rank">#2</div>
+    <div class="pod-name">Ad-1A-reel02 — "Noticias Evento"<br><span style="font-size:10px;color:#666600">1A Broad Salta</span></div>
+    <div class="pod-stats">
+      <div class="ps"><div class="pl">$/visita</div><div class="pv">$22</div></div>
+      <div class="ps"><div class="pl">Visitas</div><div class="pv">63</div></div>
+      <div class="ps"><div class="pl">V100%</div><div class="pv">97</div></div>
+    </div>
+    <div class="pod-note">Recibió la mayor inversión del día ($1,408). 63 visitas a $22/vis — muy sólido. 283 personas vieron 25% y 97 terminaron. El CBO lo mantiene como segunda opción fuerte dentro de 1A Broad.</div>
+  </div>
+  <div class="pod pod-3">
+    <div class="pod-rank">#3</div>
+    <div class="pod-name">Ad-1B-reel04 — "IA No Te Reemplaza"<br><span style="font-size:10px;color:#004466">1B Intereses Tech Salta</span></div>
+    <div class="pod-stats">
+      <div class="ps"><div class="pl">$/visita</div><div class="pv">$24</div></div>
+      <div class="ps"><div class="pl">Visitas</div><div class="pv">34</div></div>
+      <div class="ps"><div class="pl">V100%</div><div class="pv">52</div></div>
+    </div>
+    <div class="pod-note">Tercer día activo y ya consolidado en el top. 191 V25 y 52 completaron — buen ratio de retención para el segmento tech. Junto a su versión 1A ($701/27 vis a $26), el mensaje de FOMO laboral resuena fuerte.</div>
+  </div>
+</div>
+
+<!-- COMPARATIVA DIAS -->
+<div class="sec">Comparativa — 25 vs 26 mayo</div>
+<div class="comp-grid">
+  <div class="comp-box">
+    <h4 style="color:#ffcc00;">25 Mayo — Imágenes + Reels (transición)</h4>
+    <div class="comp-row"><span>Gasto total</span><span class="yellow">$10,849 ARS</span></div>
+    <div class="comp-row"><span>Visitas</span><span class="yellow">353</span></div>
+    <div class="comp-row"><span>Costo/vis promedio</span><span class="yellow">$31</span></div>
+    <div class="comp-row"><span>Top ad</span><span class="yellow">reel02 — $29/vis (158 vis)</span></div>
+    <div class="comp-row"><span>Imágenes activas</span><span class="yellow">2 (c01A + c03)</span></div>
+    <div class="comp-row"><span>Gasto en imágenes</span><span class="yellow">$4,700 (43%)</span></div>
+    <div class="comp-row"><span>Gasto en reels</span><span class="yellow">$6,150 (57%)</span></div>
+  </div>
+  <div class="comp-box">
+    <h4 style="color:#00e676;">26 Mayo — Reels 100% (dominio total)</h4>
+    <div class="comp-row"><span>Gasto total</span><span class="green">$5,283 ARS (-51%)</span></div>
+    <div class="comp-row"><span>Visitas</span><span class="green">217</span></div>
+    <div class="comp-row"><span>Costo/vis promedio</span><span class="green">$24 (-22%)</span></div>
+    <div class="comp-row"><span>Top ad</span><span class="green">reel03 — $16/vis (71 vis)</span></div>
+    <div class="comp-row"><span>Imágenes activas</span><span class="red">0 (CBO cortó todas)</span></div>
+    <div class="comp-row"><span>Gasto en imágenes</span><span class="red">$0 (0%)</span></div>
+    <div class="comp-row"><span>Gasto en reels</span><span class="green">$5,283 (100%)</span></div>
+  </div>
+</div>
+
+<!-- EVOLUCION -->
+<div class="sec">Evolución del costo por visita — toda la campaña</div>
+<div style="background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:18px 20px;margin-bottom:20px;">
+  <div class="trend-row"><span class="trend-label">Dias 1-7</span><div class="trend-bar"><div class="trend-fill" style="width:100%;background:#ff5252;"></div></div><span class="trend-val red">$55–60/vis</span></div>
+  <div class="trend-row"><span class="trend-label">Dias 8-10</span><div class="trend-bar"><div class="trend-fill" style="width:82%;background:#ffaa44;"></div></div><span class="trend-val orange">$49/vis</span></div>
+  <div class="trend-row"><span class="trend-label">Dia 11</span><div class="trend-bar"><div class="trend-fill" style="width:52%;background:#ffcc00;"></div></div><span class="trend-val yellow">$30/vis</span></div>
+  <div class="trend-row"><span class="trend-label">Dia 12 (25/5)</span><div class="trend-bar"><div class="trend-fill" style="width:52%;background:#ffcc00;"></div></div><span class="trend-val yellow">$31/vis</span></div>
+  <div class="trend-row"><span class="trend-label">Dia 13 (26/5)</span><div class="trend-bar"><div class="trend-fill" style="width:40%;background:#00e676;"></div></div><span class="trend-val green">$24/vis ▼</span></div>
+  <div class="trend-row"><span class="trend-label">Top hoy</span><div class="trend-bar"><div class="trend-fill" style="width:27%;background:#00e676;"></div></div><span class="trend-val green">$16/vis ✦</span></div>
+  <div style="font-size:11px;color:#336633;margin-top:10px;">Los reels bajaron el costo un 73% respecto al inicio de campaña. El CBO eliminó las imágenes por completo. El hook "te pagan por ir" es el mejor creative producido — probado en 2 días consecutivos.</div>
+</div>
+
+<!-- RANKING TABLA -->
+<div class="sec">Todos los ads — 26 Mayo (dia completo)</div>
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Anuncio</th><th>Tipo</th><th>Ad set</th>
+      <th>Gasto</th><th>Vis</th><th>$/vis</th>
+      <th>Impr</th><th>CTR</th><th>V25</th><th>V100</th><th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="win1">
+      <td class="tn">reel03 — Te Pagan Por Ir</td><td><span class="tag-r">REEL</span></td><td>1A Broad</td>
+      <td class="green">$1,155</td><td class="green">71</td><td class="green">$16</td>
+      <td>1,294</td><td>12.4%</td><td class="green">435</td><td class="green">145</td>
+      <td><span class="sc sc-top">#1 ESCALAR</span></td>
+    </tr>
+    <tr class="win1">
+      <td class="tn">reel02 — Noticias Evento</td><td><span class="tag-r">REEL</span></td><td>1A Broad</td>
+      <td class="green">$1,408</td><td class="green">63</td><td class="green">$22</td>
+      <td>1,557</td><td>10.0%</td><td>283</td><td>97</td>
+      <td><span class="sc sc-top">MANTENER</span></td>
+    </tr>
+    <tr class="win2">
+      <td class="tn">reel04 — IA No Te Reemplaza</td><td><span class="tag-r">REEL</span></td><td>1B Tech</td>
+      <td class="yellow">$832</td><td class="yellow">34</td><td class="yellow">$24</td>
+      <td>913</td><td>12.0%</td><td>191</td><td>52</td>
+      <td><span class="sc sc-2">MANTENER</span></td>
+    </tr>
+    <tr class="win2">
+      <td class="tn">reel04 — IA No Te Reemplaza</td><td><span class="tag-r">REEL</span></td><td>1A Broad</td>
+      <td class="yellow">$701</td><td class="yellow">27</td><td class="yellow">$26</td>
+      <td>751</td><td>8.9%</td><td>138</td><td>31</td>
+      <td><span class="sc sc-2">MANTENER</span></td>
+    </tr>
+    <tr>
+      <td class="tn">reel02 — Noticias Evento</td><td><span class="tag-r">REEL</span></td><td>1B Tech</td>
+      <td class="orange">$514</td><td class="orange">12</td><td class="orange">$43</td>
+      <td>582</td><td>8.2%</td><td>99</td><td>34</td>
+      <td><span class="sc sc-slow">REVISAR</span></td>
+    </tr>
+    <tr class="warn">
+      <td class="tn">reel03 — Te Pagan Por Ir</td><td><span class="tag-r">REEL</span></td><td>1C NOA</td>
+      <td class="red">$231</td><td class="red">4</td><td class="red">$58</td>
+      <td>263</td><td>6.1%</td><td>60</td><td>13</td>
+      <td><span class="sc sc-dead">PAUSAR</span></td>
+    </tr>
+    <tr class="warn">
+      <td class="tn">reel01 — CV IA Diferenciate</td><td><span class="tag-r">REEL</span></td><td>1B Tech</td>
+      <td class="red">$300</td><td class="red">4</td><td class="red">$75</td>
+      <td>439</td><td>6.2%</td><td>38</td><td>4</td>
+      <td><span class="sc sc-dead">PAUSAR</span></td>
+    </tr>
+    <tr class="warn">
+      <td class="tn">reel02 — Noticias Evento</td><td><span class="tag-r">REEL</span></td><td>1C NOA</td>
+      <td class="red">$142</td><td class="red">2</td><td class="red">$71</td>
+      <td>186</td><td>3.8%</td><td>12</td><td>2</td>
+      <td><span class="sc sc-dead">PAUSAR</span></td>
+    </tr>
+    <tr class="dim">
+      <td class="tn">c03 — Imagen carrusel</td><td><span class="tag-i">IMAGEN</span></td><td>1B Tech</td>
+      <td>$0</td><td>0</td><td>—</td>
+      <td>0</td><td>—</td><td>—</td><td>—</td>
+      <td><span class="sc sc-cut">CBO CORTÓ</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- PRESUPUESTO -->
+<div class="sec">Estado presupuesto — critico para el evento</div>
+<div class="budget-box">
+  <div class="bud-row"><span>Acumulado API total (16–26 mayo)</span><span>$178,065 ARS</span></div>
+  <div class="bud-row"><span>Gasto 26/mayo (último dia completo)</span><span>$5,283 ARS</span></div>
+  <div class="bud-row"><span>Gasto 25/mayo (anteayer)</span><span>$10,849 ARS</span></div>
+  <div class="bud-row orange"><span>Saldo estimado actual</span><span>~$17,373 ARS</span></div>
+  <div class="bud-row yellow"><span>Al ritmo de $5,283/día → dias restantes</span><span>~3.3 días</span></div>
+  <div class="bud-row red"><span>Evento dura (28–30 mayo)</span><span>3 días exactos</span></div>
+  <div class="bud-row red"><span>Buffer disponible</span><span>~$1,600 ARS (~0.3 días)</span></div>
+  <div class="bud-opts">
+    <div class="bopt bopt-a">
+      <h4>Opción A — Ajustar hoy (recomendado)</h4>
+      <p>Pausar <b>reel01-1B + reel03-1C + reel02-1C</b> (los 3 ads que gastan ~$370/día a $58–75/vis). Dejar solo los 4 ganadores. Budget alcanza los 3 días con buffer. El CBO los mantendrá optimizados durante el evento.</p>
+    </div>
+    <div class="bopt bopt-b">
+      <h4>Opción B — Mantener todo activo</h4>
+      <p>Riesgo de agotar el presupuesto el <b>30/mayo a la tarde</b>. Si el CBO escala reel03 (como hizo el 26/mayo), el gasto diario puede subir a $6,000–7,000 ARS. Sin recarga, los últimos ads del evento podrían no correr.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ANALISIS NOA -->
+<div class="sec">Análisis adset 1C — NOA (Jujuy / Tucumán)</div>
+<div style="background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:18px 20px;margin-bottom:20px;">
+  <div style="font-size:12px;color:#444;line-height:1.8;">
+    <p style="margin-bottom:8px;">El adset 1C (NOA) gastó <span class="red">$373</span> el 26/mayo para <span class="red">6 visitas totales</span> ($62/vis promedio). Vs 1A Broad que entregó <span class="green">134 visitas a $19/vis</span> con $2,563 de gasto.</p>
+    <p style="margin-bottom:8px;">Los CTRs de NOA son significativamente más bajos (3.8–6.1%) vs 1A Broad (9–12.4%). La audiencia de Jujuy/Tucumán muestra menor intención de click para este evento específico.</p>
+    <p><b style="color:#777;">Recomendación:</b> Pausar ambos ads 1C hoy. El presupuesto liberado (~$373/día) es mejor invertido en escalar reel03-1A que ya probó $16/vis.</p>
+  </div>
+</div>
+
+<!-- ACCIONES -->
+<div class="sec">Acciones para hoy — 27 Mayo (último dia antes del evento)</div>
+<div class="act-grid">
+  <div class="act ah-red">
+    <h4>Pausar ahora</h4>
+    <ul>
+      <li><b>Ad-1C-reel03 (NOA "Te Pagan")</b> — $58/vis, 4 vis / $231 en mayo-26. No convierte en NOA.</li>
+      <li><b>Ad-1C-reel02 (NOA "Noticias")</b> — $71/vis, 2 vis / $142. El peor ROI de toda la campaña.</li>
+      <li><b>Ad-1B-reel01 (Tech "CV IA")</b> — $75/vis, 4 vis / $300. El mensaje no conecta vs reel04 que hace $24/vis en el mismo segmento.</li>
+    </ul>
+  </div>
+  <div class="act ah-green">
+    <h4>Dejar corriendo (no tocar)</h4>
+    <ul>
+      <li><b>reel03 1A Broad "Te Pagan"</b> — $16/vis, récord absoluto, el CBO ya lo está escalando.</li>
+      <li><b>reel02 1A Broad "Noticias"</b> — $22/vis, segunda opción más fuerte, buena retención.</li>
+      <li><b>reel04 1B Tech "IA No Reemplaza"</b> — $24/vis, audiencia tech calificada.</li>
+      <li><b>reel04 1A Broad "IA No Reemplaza"</b> — $26/vis, complementa a reel03 en el mismo adset.</li>
+    </ul>
+  </div>
+  <div class="act ah-yellow">
+    <h4>Revisar reel02-1B Tech</h4>
+    <ul>
+      <li><b>Ad-1B-reel02 "Noticias" Tech</b> — $43/vis, 12 vis / $514. Costoso pero tiene volumen. Comparar si el CBO le da más presupuesto en las próximas horas o si lo abandona como hizo con las imágenes.</li>
+      <li>Si el costo no baja de $35/vis en el día de hoy → PAUSAR antes de las 20hs.</li>
+    </ul>
+  </div>
+  <div class="act ah-blue">
+    <h4>Presupuesto y monitoreo</h4>
+    <ul>
+      <li><b>No aumentar el daily budget</b> — el CBO ya está optimizado. Más budget puede desestabilizar el aprendizaje en vísperas del evento.</li>
+      <li><b>Si el saldo cae por debajo de $10K</b> → evaluar recarga de tarjeta.</li>
+      <li><b>28-30 Mayo:</b> El CBO seguirá corriendo automáticamente. Revisar métricas a las 9hs, 14hs y 19hs durante el evento.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- LIFETIME HIGHLIGHTS -->
+<div class="sec">Highlights acumulados — 13 dias de campaña</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:20px;">
+  <div style="background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:14px 16px;">
+    <div style="font-size:9px;color:#333;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Mejor ad histórico (acumulado)</div>
+    <div style="font-size:14px;font-weight:700;color:#00e676;margin-bottom:4px;">Ad-1B-c03 (imagen)</div>
+    <div style="font-size:11px;color:#336633;">1,064 visitas / $40,765 / $38/vis<br>Fue dominante días 1-11 antes que los reels lo superaran</div>
+  </div>
+  <div style="background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:14px 16px;">
+    <div style="font-size:9px;color:#333;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Mejor ad última semana</div>
+    <div style="font-size:14px;font-weight:700;color:#00e676;margin-bottom:4px;">reel03 "Te Pagan"</div>
+    <div style="font-size:11px;color:#336633;">76 visitas / $1,235 / $16/vis<br>Solo 2 días activo — tendencia exponencial</div>
+  </div>
+  <div style="background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:14px 16px;">
+    <div style="font-size:9px;color:#333;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Total visitas al sitio</div>
+    <div style="font-size:22px;font-weight:800;color:#fff;line-height:1;">4,062</div>
+    <div style="font-size:11px;color:#333;margin-top:4px;">$178,065 ARS API invertidos</div>
+  </div>
+</div>
+
+<footer>Puna Tech 2026 · Informe Dia 13 · 27 Mayo 2026 · datos May-26 completos · PT26-Ticket6K-Traffic activa</footer>
+</div>
+</body>
+</html>

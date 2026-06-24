@@ -64,8 +64,8 @@ import AICampaigns from './s6/AICampaigns'
 import CrmAndEmail from './s6/CrmAndEmail'
 
 // 07 · Casos reales
-import CasesHighlights from './s7/CasesHighlights'
-import CasesMore from './s7/CasesMore'
+import PunaTechCase from './s7/PunaTechCase'
+import PunaTechResults from './s7/PunaTechResults'
 import CommonPractices from './s7/CommonPractices'
 
 // 08 · Plan de acción
@@ -136,9 +136,9 @@ export const slides = [
   S('s6-crm', '¿Qué es un CRM? (y el email)', '06 · Herramientas', CrmAndEmail),
 
   // 07 · Casos reales
-  S('d7', 'Casos reales 2024–2026', '07 · Casos', Divider7),
-  S('s7-hi', 'Negocios como el tuyo', '07 · Casos', CasesHighlights),
-  S('s7-more', 'Funciona a toda escala', '07 · Casos', CasesMore),
+  S('d7', 'Casos reales', '07 · Casos', Divider7),
+  S('s7-puna', 'PunaTech: la campaña que armó la IA', '07 · Casos', PunaTechCase),
+  S('s7-puna2', 'El agente que manejó la pauta', '07 · Casos', PunaTechResults),
   S('s7-common', 'Qué tienen en común', '07 · Casos', CommonPractices),
 
   // 08 · Plan de acción
