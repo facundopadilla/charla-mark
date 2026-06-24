@@ -72,11 +72,11 @@ import CommonPractices from './s7/CommonPractices'
 import ActionPlan from './s8/ActionPlan'
 import QuickWins from './s8/QuickWins'
 import CommonMistakes from './s8/CommonMistakes'
-import ArgentinaContext from './s8/ArgentinaContext'
 
 // Closing
 import Recap from './closing/Recap'
 import Closing from './closing/Closing'
+import QRClose from './closing/QRClose'
 
 const S = (id, title, section, Component) => ({ id, title, section, Component })
 
@@ -146,11 +146,11 @@ export const slides = [
   S('s8-plan', 'Plan de acción en 8 pasos', '08 · Plan', ActionPlan),
   S('s8-quick', 'Victorias rápidas, bajo presupuesto', '08 · Plan', QuickWins),
   S('s8-mistakes', 'Errores comunes y cómo evitarlos', '08 · Plan', CommonMistakes),
-  S('s8-ar', 'Hecho para el contexto argentino', '08 · Plan', ArgentinaContext),
 
   // Cierre
   S('recap', 'Si te llevás solo tres cosas', 'Cierre', Recap),
   S('closing', 'Gracias', 'Cierre', Closing),
+  S('qr', 'Escaneá antes de irte', 'Cierre', QRClose),
 ]
 
 export default slides
