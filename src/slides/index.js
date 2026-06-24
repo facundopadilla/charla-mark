@@ -114,9 +114,9 @@ export const slides = [
 
   // 04 · Fidelización
   S('d4', 'Fidelización y retención', '04 · Fidelización', Divider4),
-  S('s4-gay', 'Un caso de acá: Ferretería Gay', '04 · Fidelización', FerreteriaGay),
   S('s4-why', 'Retener es el mejor negocio', '04 · Fidelización', WhyRetain),
   S('s4-prog', 'Programas que sí funcionan', '04 · Fidelización', LoyaltyPrograms),
+  S('s4-gay', 'Un caso de acá: Ferretería Gay', '04 · Fidelización', FerreteriaGay),
   S('s4-flows', 'Flujos automatizados', '04 · Fidelización', RetentionFlows),
   S('s4-mass', 'Mensajes masivos sin miedo', '04 · Fidelización', MassMessaging),
   S('s4-metrics', 'Las métricas que importan', '04 · Fidelización', LoyaltyMetrics),
