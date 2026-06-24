@@ -55,6 +55,7 @@ import LoyaltyMetrics from './s4/LoyaltyMetrics'
 // 05 · Atención y postventa
 import ServiceBenchmarks from './s5/ServiceBenchmarks'
 import ChatbotsAI from './s5/ChatbotsAI'
+import EasyPrint from './s5/EasyPrint'
 import PostSale from './s5/PostSale'
 
 // 06 · Herramientas
@@ -125,6 +126,7 @@ export const slides = [
   S('d5', 'Atención y postventa', '05 · Atención', Divider5),
   S('s5-bench', 'La velocidad como diferenciador', '05 · Atención', ServiceBenchmarks),
   S('s5-bots', 'Automatizar sin perder cercanía', '05 · Atención', ChatbotsAI),
+  S('s5-easyprint', 'Un caso de acá: EasyPrint', '05 · Atención', EasyPrint),
   S('s5-post', 'Seguimiento que genera recomendaciones', '05 · Atención', PostSale),
 
   // 06 · Herramientas
