@@ -3,6 +3,7 @@
 
 // Opening
 import Cover from './opening/Cover'
+import Survey from './opening/Survey'
 import AboutMe from './opening/AboutMe'
 import Hook from './opening/Hook'
 import Takeaways from './opening/Takeaways'
@@ -83,6 +84,7 @@ const S = (id, title, section, Component) => ({ id, title, section, Component })
 export const slides = [
   // Apertura
   S('cover', 'Marketing Digital & Fidelización 2026', 'Apertura', Cover),
+  S('survey', '¿Cuánto sabés de IA?', 'Apertura', Survey),
   S('about', 'Quién soy — Facundo Padilla', 'Apertura', AboutMe),
   S('saltadev', 'SaltaDev — la comunidad', 'Apertura', SaltaDev),
   S('hook', 'Por qué esta charla, ahora', 'Apertura', Hook),
