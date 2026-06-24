@@ -1,27 +1,13 @@
-import { CreditCard, ArrowLeftRight, Wallet, Smartphone, Globe2, ShoppingBag } from 'lucide-react'
+import { CreditCard, ArrowLeftRight, Wallet, Smartphone, ShoppingBag } from 'lucide-react'
 import Slide from '../../components/Slide'
 import { Eyebrow, Title, MeterBar, StatCard, Callout } from '../../components/ui'
 
 const macro = [
   {
-    icon: Globe2,
-    tone: 'accent',
-    value: 'US$ 50.100 M',
-    label: 'ad spend digital proyectado para 2026 en LATAM.',
-    source: 'affinco',
-  },
-  {
-    icon: ShoppingBag,
-    tone: 'gold',
-    value: 'US$ 215.000 M',
-    label: 'tamaño del eCommerce regional.',
-    source: 'affinco',
-  },
-  {
     icon: Smartphone,
     tone: 'mint',
     value: '84%',
-    label: 'de las compras se hacen desde el smartphone.',
+    label: 'de las compras en la región ya se hacen desde el celular.',
     source: 'SAMY / IAB Chile',
   },
   {
@@ -37,7 +23,7 @@ export default function PaymentsLatam() {
   return (
     <Slide align="start" justify="center">
       <Eyebrow index={1} label="Panorama actual" />
-      <Title className="max-w-4xl">Pagos fragmentados y una región que despega</Title>
+      <Title className="max-w-4xl">Cómo paga el comprador argentino</Title>
 
       <div className="mt-10 grid w-full gap-8 lg:grid-cols-2">
         <div>
@@ -73,7 +59,7 @@ export default function PaymentsLatam() {
         <div>
           <h3 className="mb-5 flex items-center gap-2 font-display text-lg font-semibold text-ink">
             <ArrowLeftRight className="h-5 w-5 text-mint" strokeWidth={1.7} />
-            LATAM en números
+            Dos señales regionales que ya se ven acá
           </h3>
           <div className="grid gap-5 sm:grid-cols-2">
             {macro.map((m) => (

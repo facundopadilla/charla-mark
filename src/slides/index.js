@@ -48,6 +48,7 @@ import OmniTools from './s3/OmniTools'
 import WhyRetain from './s4/WhyRetain'
 import LoyaltyPrograms from './s4/LoyaltyPrograms'
 import RetentionFlows from './s4/RetentionFlows'
+import MassMessaging from './s4/MassMessaging'
 import LoyaltyMetrics from './s4/LoyaltyMetrics'
 
 // 05 · Atención y postventa
@@ -115,6 +116,7 @@ export const slides = [
   S('s4-why', 'Retener es el mejor negocio', '04 · Fidelización', WhyRetain),
   S('s4-prog', 'Programas que sí funcionan', '04 · Fidelización', LoyaltyPrograms),
   S('s4-flows', 'Flujos automatizados', '04 · Fidelización', RetentionFlows),
+  S('s4-mass', 'Mensajes masivos sin miedo', '04 · Fidelización', MassMessaging),
   S('s4-metrics', 'Las métricas que importan', '04 · Fidelización', LoyaltyMetrics),
 
   // 05 · Atención y postventa

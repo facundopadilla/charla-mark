@@ -74,6 +74,9 @@ export default function Deck({ slides }) {
       if (e.metaKey || e.ctrlKey || e.altKey) return
       // A video/dialog is open — let it own the keyboard (don't navigate behind it)
       if (document.querySelector('[data-modal="open"]')) return
+      // A focused inline video/iframe owns space + arrows (play/pause, seek)
+      const tag = e.target && e.target.tagName
+      if (tag === 'VIDEO' || tag === 'IFRAME') return
       switch (e.key) {
         case 'ArrowRight':
         case 'PageDown':
