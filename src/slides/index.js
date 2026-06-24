@@ -30,6 +30,7 @@ import InstagramAlgo from './s1/InstagramAlgo'
 import MetaSocialCommerce from './s1/MetaSocialCommerce'
 import ConsumerAr from './s1/ConsumerAr'
 import ConsumerBehavior from './s1/ConsumerBehavior'
+import ConsumerApps from './s1/ConsumerApps'
 import PaymentsLatam from './s1/PaymentsLatam'
 
 // 02 · Redes como canal
@@ -94,7 +95,8 @@ export const slides = [
   S('s1-meta', 'El 82% del social commerce es Meta', '01 · Panorama', MetaSocialCommerce),
   S('s1-ar', 'El eCommerce argentino crece', '01 · Panorama', ConsumerAr),
   S('s1-behavior', 'Consumidor racional y mobile-first', '01 · Panorama', ConsumerBehavior),
-  S('s1-pay', 'Pagos fragmentados y región en alza', '01 · Panorama', PaymentsLatam),
+  S('s1-apps', 'Apps que usa el argentino para comparar', '01 · Panorama', ConsumerApps),
+  S('s1-pay', 'Cómo paga el comprador argentino', '01 · Panorama', PaymentsLatam),
 
   // 02 · Redes como canal
   S('d2', 'Redes como canal de venta', '02 · Redes', Divider2),
@@ -102,7 +104,7 @@ export const slides = [
   S('s2-vs', 'WhatsApp vs Email', '02 · Redes', WhatsAppVsEmail),
   S('s2-growth', 'Argentina lidera el comercio por WhatsApp', '02 · Redes', WhatsAppGrowth),
   S('s2-2026', 'Lo nuevo de WhatsApp Business 2026', '02 · Redes', WhatsApp2026),
-  S('s2-ig', 'Instagram y Facebook que venden', '02 · Redes', InstagramSelling),
+  S('s2-ig', 'Dónde vender de verdad', '02 · Redes', InstagramSelling),
 
   // 03 · Omnicanalidad
   S('d3', 'Omnicanalidad', '03 · Omnicanalidad', Divider3),

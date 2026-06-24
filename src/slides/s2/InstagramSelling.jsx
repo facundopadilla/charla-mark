@@ -1,62 +1,51 @@
-import { ShoppingBag, Video, Users } from 'lucide-react'
+import { MessageCircle, Camera, Store, Info } from 'lucide-react'
 import Slide from '../../components/Slide'
-import { Eyebrow, Title, PointList, SourceTag, Reveal } from '../../components/ui'
+import { Eyebrow, Title, Lead, Reveal, Callout, toneText } from '../../components/ui'
 
-const points = [
+const channels = [
   {
-    icon: ShoppingBag,
-    title: 'Activá el catálogo',
-    text: 'Instagram Shopping / Facebook Shops: etiquetá productos en posts y Reels con link de pago (MercadoPago o Pago Nube).',
+    icon: MessageCircle,
+    tone: 'accent',
+    name: 'Tu tienda en WhatsApp',
+    text: 'Cargá el catálogo en WhatsApp Business: mostrás, respondés y cerrás la venta en el mismo chat. Es tu local.',
   },
   {
-    icon: Video,
-    title: 'Video corto del producto en uso real',
-    text: 'Gancho en los primeros 3 segundos y captions con keywords para que el algoritmo lo entienda.',
+    icon: Camera,
+    tone: 'mint',
+    name: 'Instagram para mostrar',
+    text: 'Vendé por publicaciones y Reels del producto en uso (gancho en los primeros 3 segundos), con link directo a tu WhatsApp.',
   },
   {
-    icon: Users,
-    title: 'Microinfluencers: canje o pago por video',
-    text: 'Acá casi nadie paga por resultado: lo común es el canje (producto por contenido) o un pago fijo por video. Elegí 3–5 de tu nicho.',
+    icon: Store,
+    tone: 'gold',
+    name: 'Facebook Marketplace',
+    text: 'Donde la gente de tu zona ya busca y compra. Publicar es gratis, es local y aparecés ante quien justo está buscando.',
   },
-]
-
-const benchmarks = [
-  { k: 'CPC', v: '~US$ 0,58', m: 'Costo por clic: lo que pagás cada vez que alguien toca tu anuncio.' },
-  { k: 'CTR', v: '~1,8%', m: 'De cada 100 personas que ven el anuncio, ~2 hacen clic.' },
-  { k: 'Conversión', v: '~3,2%', m: 'De cada 100 que hacen clic, ~3 terminan comprando.' },
-  { k: 'ROAS', v: '2,8–3,5x', m: 'Por cada $1 invertido en publicidad, recuperás ~$3 en ventas.' },
 ]
 
 export default function InstagramSelling() {
   return (
     <Slide align="start" justify="center">
       <Eyebrow index={2} label="Redes como canal de venta" />
-      <Title className="max-w-4xl">
-        Instagram y Facebook: descubrimiento que vende
-      </Title>
+      <Title className="max-w-4xl">Dónde vender de verdad, sin complicarte</Title>
+      <Lead>Lo que funciona acá no es el carrito de Instagram. Es bastante más simple.</Lead>
 
-      <PointList className="mt-10 max-w-3xl" items={points} tone="accent" />
-
-      <Reveal className="mt-10 w-full">
-        <div className="text-sm font-semibold text-ink">
-          Si hacés publicidad paga (pauta), estos son los números de referencia en Meta
-          para eCommerce:
-        </div>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {benchmarks.map((b) => (
-            <div key={b.k} className="rounded-xl border border-line bg-surface/50 p-5">
-              <div className="stat-figure text-3xl text-mint">{b.v}</div>
-              <div className="mt-1 text-sm font-semibold text-ink">{b.k}</div>
-              <p className="mt-2 text-sm text-ink-dim leading-snug">{b.m}</p>
+      <div className="mt-10 grid w-full gap-5 sm:grid-cols-3">
+        {channels.map((c) => (
+          <Reveal key={c.name}>
+            <div className="flex h-full flex-col rounded-xl border border-line bg-surface/50 p-6">
+              <c.icon className={['h-7 w-7', toneText[c.tone]].join(' ')} strokeWidth={1.6} />
+              <h3 className="mt-4 font-display text-xl font-semibold text-ink">{c.name}</h3>
+              <p className="mt-2 text-ink-dim leading-relaxed">{c.text}</p>
             </div>
-          ))}
-        </div>
-        <p className="mt-4 text-sm text-ink-mute">
-          TikTok suele tener un costo por clic más bajo para el mismo objetivo.
-        </p>
-      </Reveal>
+          </Reveal>
+        ))}
+      </div>
 
-      <SourceTag>Thunderbit</SourceTag>
+      <Callout className="mt-8 max-w-4xl" tone="clay" icon={Info} title="No te compliques">
+        Instagram Shopping y Facebook Shops casi nadie los usa por acá. Con el catálogo de
+        WhatsApp y una buena foto en el feed, alcanza para arrancar y vender.
+      </Callout>
     </Slide>
   )
 }
