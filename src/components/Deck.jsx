@@ -170,6 +170,12 @@ export default function Deck({ slides }) {
         />
       </div>
 
+      {/* SaltaDev brand mark — visible on every slide (top-left corner) */}
+      <div className="pointer-events-none fixed left-5 top-4 z-30 flex items-center gap-2 select-none">
+        <img src="/brand/saltadev-logo.webp" alt="SaltaDev" className="h-8 w-auto" />
+        <span className="font-display text-sm font-semibold tracking-tight text-ink/90">SaltaDev</span>
+      </div>
+
       {/* Presenter timer */}
       <AnimatePresence>
         {timerOn && (
@@ -177,7 +183,7 @@ export default function Deck({ slides }) {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
-            className="fixed left-5 top-5 z-30 flex items-center gap-3 rounded-lg border border-line bg-surface/80 px-3.5 py-2 backdrop-blur"
+            className="fixed right-5 top-5 z-30 flex items-center gap-3 rounded-lg border border-line bg-surface/80 px-3.5 py-2 backdrop-blur"
           >
             <Timer className={overBudget ? 'h-4 w-4 text-clay' : 'h-4 w-4 text-accent'} strokeWidth={1.8} />
             <span className={['stat-figure text-lg', overBudget ? 'text-clay' : 'text-ink'].join(' ')}>

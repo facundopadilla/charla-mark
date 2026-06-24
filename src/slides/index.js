@@ -3,9 +3,13 @@
 
 // Opening
 import Cover from './opening/Cover'
+import AboutMe from './opening/AboutMe'
 import Hook from './opening/Hook'
 import Takeaways from './opening/Takeaways'
 import Agenda from './opening/Agenda'
+
+// Community
+import SaltaDev from './community/SaltaDev'
 
 // Section dividers
 import {
@@ -77,6 +81,7 @@ const S = (id, title, section, Component) => ({ id, title, section, Component })
 export const slides = [
   // Apertura
   S('cover', 'Marketing Digital & Fidelización 2026', 'Apertura', Cover),
+  S('about', 'Quién soy — Facundo Padilla', 'Apertura', AboutMe),
   S('hook', 'Por qué esta charla, ahora', 'Apertura', Hook),
   S('takeaways', 'Las tres conclusiones', 'Apertura', Takeaways),
   S('agenda', 'Qué vamos a ver hoy', 'Apertura', Agenda),
@@ -140,6 +145,7 @@ export const slides = [
 
   // Cierre
   S('recap', 'Si te llevás solo tres cosas', 'Cierre', Recap),
+  S('saltadev', 'SaltaDev — sumate a la comunidad', 'Comunidad', SaltaDev),
   S('closing', 'Gracias', 'Cierre', Closing),
 ]
 
