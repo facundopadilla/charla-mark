@@ -170,12 +170,12 @@ const toneBorderLeft = {
 }
 
 /** StatCard — a Stat inside a Card, for grids. */
-export function StatCard({ value, label, source, tone = 'accent', icon: Icon, className = '' }) {
+export function StatCard({ value, label, source, tone = 'accent', icon: Icon, footer, className = '' }) {
   return (
     <Reveal>
       <div
         className={[
-          'h-full rounded-xl border border-line bg-surface/50 p-6 text-left',
+          'flex h-full flex-col rounded-xl border border-line bg-surface/50 p-6 text-left',
           className,
         ].join(' ')}
       >
@@ -185,6 +185,7 @@ export function StatCard({ value, label, source, tone = 'accent', icon: Icon, cl
         <div className={['stat-figure text-4xl sm:text-5xl', toneText[tone]].join(' ')}>{value}</div>
         {label && <div className="mt-3 text-sm text-ink-dim leading-snug">{label}</div>}
         {source && <SourceTag>{source}</SourceTag>}
+        {footer && <div className="mt-auto pt-4">{footer}</div>}
       </div>
     </Reveal>
   )
