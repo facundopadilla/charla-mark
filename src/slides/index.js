@@ -82,6 +82,7 @@ export const slides = [
   // Apertura
   S('cover', 'Marketing Digital & Fidelización 2026', 'Apertura', Cover),
   S('about', 'Quién soy — Facundo Padilla', 'Apertura', AboutMe),
+  S('saltadev', 'SaltaDev — la comunidad', 'Apertura', SaltaDev),
   S('hook', 'Por qué esta charla, ahora', 'Apertura', Hook),
   S('takeaways', 'Las tres conclusiones', 'Apertura', Takeaways),
   S('agenda', 'Qué vamos a ver hoy', 'Apertura', Agenda),
@@ -145,7 +146,6 @@ export const slides = [
 
   // Cierre
   S('recap', 'Si te llevás solo tres cosas', 'Cierre', Recap),
-  S('saltadev', 'SaltaDev — sumate a la comunidad', 'Comunidad', SaltaDev),
   S('closing', 'Gracias', 'Cierre', Closing),
 ]
 
