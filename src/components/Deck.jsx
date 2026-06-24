@@ -72,6 +72,8 @@ export default function Deck({ slides }) {
   useEffect(() => {
     const onKey = (e) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return
+      // A video/dialog is open — let it own the keyboard (don't navigate behind it)
+      if (document.querySelector('[data-modal="open"]')) return
       switch (e.key) {
         case 'ArrowRight':
         case 'PageDown':

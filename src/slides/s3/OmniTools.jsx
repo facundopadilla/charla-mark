@@ -1,48 +1,36 @@
-import { Store, LayoutGrid, Headset, Workflow, Send } from 'lucide-react'
+import { Check, Info } from 'lucide-react'
 import Slide from '../../components/Slide'
-import { Eyebrow, Title, Lead, Card, Pill, Reveal, toneText } from '../../components/ui'
+import { Eyebrow, Title, Lead, Reveal, SourceTag } from '../../components/ui'
 
-const tools = [
+// Argentine e-commerce platforms for entrepreneurs just starting to sell.
+// Data: research junio 2026 (precios aprox., cambian por inflación).
+const cols = ['Tiendanube', 'Empretienda', 'Tienda Negocio']
+
+const rows = [
   {
-    icon: Store,
-    tone: 'accent',
-    name: 'Tiendanube',
-    text: 'Tienda online + ventas en Instagram, Facebook, WhatsApp y local desde un solo panel.',
-    access: 'Plan gratuito',
-    accessTone: 'accent',
-    note: 'Pago Nube sin costo por transacción',
+    label: 'Plan gratis',
+    values: ['Sí — Inicial $0 de por vida', '30 días de prueba', '30 días de prueba'],
   },
   {
-    icon: LayoutGrid,
-    tone: 'mint',
-    name: 'Meta Business Suite',
-    text: 'Gestión unificada de Instagram y Facebook: mensajes, publicaciones y métricas.',
-    access: 'Gratuito',
-    accessTone: 'accent',
+    label: 'Precio mensual',
+    values: ['Gratis · pago desde ~$27.000', '$9.490 (plan único)', 'desde ~$9.999 (aprox.)'],
   },
   {
-    icon: Headset,
-    tone: 'gold',
-    name: 'Zoho Desk',
-    text: 'Bandeja unificada de llamadas, correo, chat y WhatsApp con historial por cliente.',
-    access: 'Pago (PyME)',
-    accessTone: 'gold',
+    label: 'Comisión por venta (plataforma)',
+    values: ['2% en el plan gratis · 0% con Pago Nube', '0% — sin comisión', '0% — sin comisión'],
+    highlight: [false, true, true],
   },
   {
-    icon: Workflow,
-    tone: 'clay',
-    name: 'Trengo / respond.io',
-    text: 'Inbox omnicanal con API de WhatsApp y CRM para coordinar todo el equipo.',
-    access: 'Pago',
-    accessTone: 'gold',
+    label: 'Medios de pago',
+    values: ['Pago Nube, Mercado Pago + cuotas', 'Mercado Pago, Ualá Bis + cuotas', 'Mercado Pago, MODO, GOcuotas y más'],
   },
   {
-    icon: Send,
-    tone: 'mauve',
-    name: 'Brevo',
-    text: 'Email, SMS, WhatsApp, chat web y CRM integrados en una sola plataforma.',
-    access: 'Plan gratuito',
-    accessTone: 'accent',
+    label: 'Mejor para',
+    values: [
+      'Arrancar gratis y escalar: la más usada, con más tutoriales y comunidad',
+      'Costo fijo bajo y predecible, sin % por venta',
+      'Sin comisión + la mayor variedad de medios de pago',
+    ],
   },
 ]
 
@@ -50,30 +38,64 @@ export default function OmniTools() {
   return (
     <Slide align="start" justify="center">
       <Eyebrow index={3} label="Omnicanalidad" />
-      <Title className="max-w-4xl">Herramientas accesibles para implementar omnicanalidad</Title>
-      <Lead>
-        No hace falta un gran presupuesto: estas plataformas cubren desde la venta
-        hasta la atención unificada.
-      </Lead>
+      <Title className="max-w-4xl">¿En qué plataforma montás tu tienda online?</Title>
+      <Lead>Tres opciones argentinas pensadas para arrancar sin saber nada técnico.</Lead>
 
-      <div className="mt-10 grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {tools.map((t) => (
-          <Reveal key={t.name}>
-            <Card tone={t.tone} className="flex h-full flex-col">
-              <t.icon
-                className={['mb-4 h-6 w-6', toneText[t.tone]].join(' ')}
-                strokeWidth={1.6}
-              />
-              <h3 className="font-display text-xl font-semibold text-ink">{t.name}</h3>
-              <p className="mt-2 flex-1 text-sm text-ink-dim leading-relaxed">{t.text}</p>
-              <div className="mt-4 flex items-center gap-2">
-                <Pill tone={t.accessTone}>{t.access}</Pill>
-                {t.note && <span className="text-xs text-ink-mute">{t.note}</span>}
-              </div>
-            </Card>
-          </Reveal>
-        ))}
-      </div>
+      <Reveal className="mt-8 w-full overflow-x-auto no-scrollbar">
+        <table className="w-full border-collapse text-left">
+          <thead>
+            <tr>
+              <th className="w-[180px] p-3" />
+              {cols.map((c, i) => (
+                <th
+                  key={c}
+                  className={[
+                    'border-b border-line p-3 align-bottom font-display text-lg font-semibold',
+                    i === 0 ? 'text-accent' : 'text-ink',
+                  ].join(' ')}
+                >
+                  {c}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr key={r.label} className="align-top">
+                <th className="border-b border-line/60 p-3 text-sm font-medium text-ink-mute">
+                  {r.label}
+                </th>
+                {r.values.map((v, i) => (
+                  <td
+                    key={i}
+                    className={[
+                      'border-b border-line/60 p-3 text-sm leading-snug',
+                      r.highlight && r.highlight[i] ? 'font-semibold text-accent' : 'text-ink-dim',
+                    ].join(' ')}
+                  >
+                    {r.highlight && r.highlight[i] && (
+                      <Check className="mr-1 inline h-3.5 w-3.5" strokeWidth={2.5} />
+                    )}
+                    {v}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Reveal>
+
+      <Reveal className="mt-6 flex max-w-4xl items-start gap-3 rounded-xl border border-line bg-surface/50 p-4">
+        <Info className="mt-0.5 h-5 w-5 shrink-0 text-gold" strokeWidth={1.8} />
+        <p className="text-sm text-ink-dim leading-relaxed">
+          Aparte va <span className="text-ink">siempre</span> la comisión del medio de pago
+          (Mercado Pago, Ualá Bis ≈ 3,5–4,5% + IVA al cobrar con tarjeta); por
+          transferencia o efectivo suele ser 0%. Mercado Shops cierra el 31/12/2025: para
+          una tienda propia, mejor estas tres.
+        </p>
+      </Reveal>
+
+      <SourceTag>Sitios oficiales · precios aprox. junio 2026 (confirmá por inflación)</SourceTag>
     </Slide>
   )
 }

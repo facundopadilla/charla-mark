@@ -171,10 +171,13 @@ export function DonutChartCard({
           <Tooltip content={<ChartTooltip unit={unit} />} />
         </PieChart>
       </ResponsiveContainer>
-      {/* Legend */}
-      <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
+      {/* Legend — separated from the donut with its own divider + chips */}
+      <div className="mt-6 flex flex-wrap gap-2.5 border-t border-line pt-5">
         {data.map((d, i) => (
-          <div key={i} className="flex items-center gap-2 text-sm">
+          <div
+            key={i}
+            className="flex items-center gap-2 rounded-lg border border-line bg-surface-2/50 px-3 py-1.5 text-sm"
+          >
             <span className="h-2.5 w-2.5 rounded-full" style={{ background: colors[i % colors.length] }} />
             <span className="text-ink-dim">{d.name}</span>
             <span className="stat-figure text-ink">

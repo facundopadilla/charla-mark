@@ -1,6 +1,6 @@
 import { ShoppingBag, Video, Radio, Users } from 'lucide-react'
 import Slide from '../../components/Slide'
-import { Eyebrow, Title, PointList, Pill, SourceTag, Reveal } from '../../components/ui'
+import { Eyebrow, Title, PointList, SourceTag, Reveal } from '../../components/ui'
 
 const points = [
   {
@@ -25,7 +25,12 @@ const points = [
   },
 ]
 
-const benchmarks = ['CPC ~US$ 0,58', 'CTR ~1,8%', 'Conversión ~3,2%', 'ROAS 2,8–3,5x']
+const benchmarks = [
+  { k: 'CPC', v: '~US$ 0,58', m: 'Costo por clic: lo que pagás cada vez que alguien toca tu anuncio.' },
+  { k: 'CTR', v: '~1,8%', m: 'De cada 100 personas que ven el anuncio, ~2 hacen clic.' },
+  { k: 'Conversión', v: '~3,2%', m: 'De cada 100 que hacen clic, ~3 terminan comprando.' },
+  { k: 'ROAS', v: '2,8–3,5x', m: 'Por cada $1 invertido en publicidad, recuperás ~$3 en ventas.' },
+]
 
 export default function InstagramSelling() {
   return (
@@ -37,19 +42,22 @@ export default function InstagramSelling() {
 
       <PointList className="mt-10 max-w-3xl" items={points} tone="accent" />
 
-      <Reveal className="mt-10 w-full max-w-3xl rounded-xl border border-line bg-surface/50 p-6">
+      <Reveal className="mt-10 w-full">
         <div className="text-sm font-semibold text-ink">
-          Benchmarks de pauta Meta para eCommerce
+          Si hacés publicidad paga (pauta), estos son los números de referencia en Meta
+          para eCommerce:
         </div>
-        <div className="mt-4 flex flex-wrap gap-2.5">
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {benchmarks.map((b) => (
-            <Pill key={b} tone="mint">
-              {b}
-            </Pill>
+            <div key={b.k} className="rounded-xl border border-line bg-surface/50 p-5">
+              <div className="stat-figure text-3xl text-mint">{b.v}</div>
+              <div className="mt-1 text-sm font-semibold text-ink">{b.k}</div>
+              <p className="mt-2 text-sm text-ink-dim leading-snug">{b.m}</p>
+            </div>
           ))}
         </div>
         <p className="mt-4 text-sm text-ink-mute">
-          TikTok suele ofrecer CPC más bajos para el mismo objetivo.
+          TikTok suele tener un costo por clic más bajo para el mismo objetivo.
         </p>
       </Reveal>
 

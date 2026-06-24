@@ -38,7 +38,6 @@ import WhatsAppVsEmail from './s2/WhatsAppVsEmail'
 import WhatsAppGrowth from './s2/WhatsAppGrowth'
 import WhatsApp2026 from './s2/WhatsApp2026'
 import InstagramSelling from './s2/InstagramSelling'
-import SocialCommerce from './s2/SocialCommerce'
 
 // 03 · Omnicanalidad
 import OmniWhat from './s3/OmniWhat'
@@ -104,13 +103,12 @@ export const slides = [
   S('s2-growth', 'Argentina lidera el comercio por WhatsApp', '02 · Redes', WhatsAppGrowth),
   S('s2-2026', 'Lo nuevo de WhatsApp Business 2026', '02 · Redes', WhatsApp2026),
   S('s2-ig', 'Instagram y Facebook que venden', '02 · Redes', InstagramSelling),
-  S('s2-sc', 'Social commerce: LATAM lidera', '02 · Redes', SocialCommerce),
 
   // 03 · Omnicanalidad
   S('d3', 'Omnicanalidad', '03 · Omnicanalidad', Divider3),
   S('s3-what', 'Una sola experiencia', '03 · Omnicanalidad', OmniWhat),
   S('s3-how', 'Bandeja unificada e historial', '03 · Omnicanalidad', OmniHow),
-  S('s3-tools', 'Herramientas de omnicanalidad', '03 · Omnicanalidad', OmniTools),
+  S('s3-tools', 'Plataformas para vender online', '03 · Omnicanalidad', OmniTools),
 
   // 04 · Fidelización
   S('d4', 'Fidelización y retención', '04 · Fidelización', Divider4),
