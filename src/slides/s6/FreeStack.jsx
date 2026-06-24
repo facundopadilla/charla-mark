@@ -1,25 +1,23 @@
 import {
-  Store,
   MessageCircle,
+  Store,
+  Wallet,
   LayoutGrid,
-  Mail,
   Palette,
-  BarChart3,
-  Search,
-  Gift,
+  Tags,
+  Ban,
 } from 'lucide-react'
 import Slide from '../../components/Slide'
 import { Eyebrow, Title, Lead, Reveal, Callout } from '../../components/ui'
 
-// Recommended free stack to launch without upfront investment.
+// WhatsApp-first stack, all free, all actually used in Argentina.
 const tools = [
-  { icon: Store, tone: 'accent', name: 'Tiendanube', use: 'Tienda online' },
-  { icon: MessageCircle, tone: 'mint', name: 'WhatsApp Business', use: 'Ventas + Business AI' },
-  { icon: LayoutGrid, tone: 'gold', name: 'Meta Business Suite', use: 'Instagram y Facebook' },
-  { icon: Mail, tone: 'clay', name: 'Brevo', use: 'Email + CRM' },
-  { icon: Palette, tone: 'mauve', name: 'Canva', use: 'Diseño' },
-  { icon: BarChart3, tone: 'accent', name: 'Google Analytics 4', use: 'Analítica' },
-  { icon: Search, tone: 'mint', name: 'Google Search Console', use: 'SEO' },
+  { icon: MessageCircle, tone: 'accent', name: 'WhatsApp Business', use: 'Vender, atender, catálogo + Business AI' },
+  { icon: Store, tone: 'mint', name: 'Tiendanube / Empretienda', use: 'Tu tienda online cuando la necesites' },
+  { icon: Wallet, tone: 'gold', name: 'Mercado Pago', use: 'Cobrar: QR, link de pago y cuotas' },
+  { icon: LayoutGrid, tone: 'clay', name: 'Meta Business Suite', use: 'Instagram y Facebook en un solo lugar' },
+  { icon: Palette, tone: 'mauve', name: 'Canva', use: 'Diseñar sin saber diseñar' },
+  { icon: Tags, tone: 'accent', name: 'Etiquetas + planilla', use: 'Tu primer CRM, gratis (lo vemos enseguida)' },
 ]
 
 const toneText = {
@@ -34,13 +32,10 @@ export default function FreeStack() {
   return (
     <Slide align="start" justify="center">
       <Eyebrow index={6} label="Herramientas" />
-      <Title className="max-w-4xl">El stack gratuito para arrancar sin invertir</Title>
-      <Lead>
-        Siete herramientas sin costo que cubren venta, comunicación, contenido y
-        medición desde el día uno.
-      </Lead>
+      <Title className="max-w-4xl">Con qué arrancás: gratis y pensado para Argentina</Title>
+      <Lead>Todo lo que se usa de verdad acá, sin pagar nada en dólares.</Lead>
 
-      <div className="mt-10 grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {tools.map((t) => (
           <Reveal key={t.name}>
             <div className="flex h-full items-center gap-4 rounded-xl border border-line bg-surface/50 p-5">
@@ -56,13 +51,10 @@ export default function FreeStack() {
         ))}
       </div>
 
-      <Callout className="mt-8 max-w-3xl" tone="gold" icon={Gift} title="Empezá gratis, pagá cuando crezcas">
-        Un stack 100% gratuito cubre cerca del 80% de las necesidades de una PyME
-        en fase inicial. Conviene pasar a versiones pagas al superar los límites
-        del plan gratuito o al generar más de US$5.000/mes en ingresos digitales.
-        <span className="mt-3 block font-mono text-[11px] uppercase tracking-wide text-ink-mute">
-          Fuente: Tooldata
-        </span>
+      <Callout className="mt-8 max-w-4xl" tone="clay" icon={Ban} title="Evitá por ahora (son para empresas grandes)">
+        Shopify y WooCommerce (caros y en dólares), Zoho Desk, Hootsuite, respond.io o
+        Trengo. El que recién arranca no los necesita — y los paga en dólares. Empezá con
+        lo de arriba.
       </Callout>
     </Slide>
   )

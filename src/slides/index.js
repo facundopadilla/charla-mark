@@ -60,8 +60,8 @@ import PostSale from './s5/PostSale'
 
 // 06 · Herramientas
 import FreeStack from './s6/FreeStack'
-import EmailCrmTools from './s6/EmailCrmTools'
-import ToolsByCategory from './s6/ToolsByCategory'
+import AICampaigns from './s6/AICampaigns'
+import CrmAndEmail from './s6/CrmAndEmail'
 
 // 07 · Casos reales
 import CasesHighlights from './s7/CasesHighlights'
@@ -131,9 +131,9 @@ export const slides = [
 
   // 06 · Herramientas
   S('d6', 'Herramientas recomendadas', '06 · Herramientas', Divider6),
-  S('s6-free', 'El stack gratuito para arrancar', '06 · Herramientas', FreeStack),
-  S('s6-email', 'Email, CRM y automatización', '06 · Herramientas', EmailCrmTools),
-  S('s6-cat', 'El resto del kit, por categoría', '06 · Herramientas', ToolsByCategory),
+  S('s6-free', 'Con qué arrancás (gratis y de acá)', '06 · Herramientas', FreeStack),
+  S('s6-ai', 'IA para crear tus campañas', '06 · Herramientas', AICampaigns),
+  S('s6-crm', '¿Qué es un CRM? (y el email)', '06 · Herramientas', CrmAndEmail),
 
   // 07 · Casos reales
   S('d7', 'Casos reales 2024–2026', '07 · Casos', Divider7),
