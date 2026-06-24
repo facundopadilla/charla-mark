@@ -1,6 +1,6 @@
-import { Coins, Crown, Users, Rocket, Lightbulb } from 'lucide-react'
+import { Coins, Crown, Users, Stamp, Gift, Star, Lightbulb } from 'lucide-react'
 import Slide from '../../components/Slide'
-import { Eyebrow, Title, StatCard, PointList, Callout, Reveal } from '../../components/ui'
+import { Eyebrow, Title, Lead, StatCard, PointList, Callout, Reveal } from '../../components/ui'
 
 const stats = [
   {
@@ -25,24 +25,24 @@ const stats = [
 
 const models = [
   {
-    icon: Coins,
-    title: 'Puntos por compra',
-    text: 'Acumulables y canjeables por descuentos o productos.',
+    icon: Stamp,
+    title: 'Puntos o tarjeta de sellos',
+    text: 'Comprá 10, el 11 va de regalo. Clásico de kiosco, café o peluquería — funciona y es barato.',
   },
   {
-    icon: Crown,
-    title: 'Niveles VIP / tiers',
-    text: 'Silver, gold y platinum: más se compra, más beneficios.',
+    icon: Gift,
+    title: 'Un premio al que vuelve',
+    text: 'Un descuento o un regalito en la próxima compra, para que haya una próxima.',
   },
   {
     icon: Users,
     title: 'Referidos',
-    text: 'La credibilidad del cliente expande la base orgánicamente.',
+    text: 'Traé a un amigo y ganan los dos: la mejor publicidad es un cliente contento.',
   },
   {
-    icon: Rocket,
-    title: 'Acceso anticipado',
-    text: 'Lanzamientos antes que nadie para los más valiosos.',
+    icon: Star,
+    title: 'Cliente frecuente',
+    text: 'Atención preferencial o un extra sorpresa para los que siempre te eligen.',
   },
 ]
 
@@ -51,8 +51,9 @@ export default function LoyaltyPrograms() {
     <Slide align="start" justify="center">
       <Eyebrow index={4} label="Fidelización y retención" />
       <Title className="max-w-4xl">Programas de fidelización que sí funcionan</Title>
+      <Lead>Para un kiosco, un local de ropa o un servicio — sin apps ni nada complicado.</Lead>
 
-      <div className="mt-10 grid w-full gap-5 sm:grid-cols-3">
+      <div className="mt-8 grid w-full gap-5 sm:grid-cols-3">
         {stats.map((s) => (
           <StatCard key={s.value} {...s} source="Nextdoor" />
         ))}

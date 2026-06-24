@@ -1,49 +1,35 @@
-import { Wallet, Repeat, TrendingDown, Smile, ArrowUpRight, Gauge, Brain } from 'lucide-react'
+import { Repeat, Wallet, TrendingDown, Smile, ArrowRight, Target } from 'lucide-react'
 import Slide from '../../components/Slide'
-import { Eyebrow, Title, Card, Callout, Reveal } from '../../components/ui'
+import { Eyebrow, Title, Lead, Card, Callout, Reveal } from '../../components/ui'
 
 const metrics = [
   {
-    icon: Wallet,
+    icon: Repeat,
     tone: 'accent',
-    name: 'CLV',
-    full: 'Valor de vida del cliente',
-    text: 'Ingreso total durante toda la relación. Ej.: US$50 × 4 compras/año × 3 años = US$600.',
+    name: 'Recompra',
+    what: '¿Cuántos de tus clientes vuelven a comprar una segunda vez?',
+    action: 'Si vuelven pocos, mandá un mensaje post-venta y una oferta para la 2ª compra.',
   },
   {
-    icon: Repeat,
+    icon: Wallet,
     tone: 'gold',
-    name: 'Tasa de recompra',
-    full: 'Compradores que vuelven',
-    text: 'Porcentaje de clientes que compra más de una vez.',
+    name: 'Cuánto te deja un cliente',
+    what: 'Lo que te gasta a lo largo del tiempo, no en una sola compra.',
+    action: 'Si es alto, gastá en retenerlo: sale mucho más barato que conseguir uno nuevo.',
   },
   {
     icon: TrendingDown,
     tone: 'clay',
-    name: 'Churn',
-    full: 'Tasa de abandono',
-    text: 'Porcentaje de clientes perdidos en un período. Más bajo = más lealtad.',
+    name: 'Los que se van',
+    what: 'Clientes que te compraban y dejaste de ver (abandono).',
+    action: 'Detectá a los que no compran hace meses y reactivalos con un beneficio.',
   },
   {
     icon: Smile,
     tone: 'mint',
-    name: 'NPS',
-    full: 'Probabilidad de recomendar',
-    text: '% Promotores − % Detractores. Alerta temprana de la lealtad.',
-  },
-  {
-    icon: ArrowUpRight,
-    tone: 'accent',
-    name: 'NRR',
-    full: 'Net Revenue Retention',
-    text: 'Ingreso recurrente conservado contemplando upgrades y bajas.',
-  },
-  {
-    icon: Gauge,
-    tone: 'mauve',
-    name: 'CES',
-    full: 'Customer Effort Score',
-    text: 'Cuán fácil le resultó al cliente. Menor esfuerzo = más lealtad.',
+    name: '¿Te recomendarían?',
+    what: 'Preguntales del 0 al 10 qué tan probable es que te recomienden.',
+    action: 'A los de 9–10 pediles reseña o un referido; a los bajos, llamalos y resolvé.',
   },
 ]
 
@@ -51,7 +37,6 @@ const toneText = {
   accent: 'text-accent',
   gold: 'text-gold',
   clay: 'text-clay',
-  mauve: 'text-mauve',
   mint: 'text-mint',
 }
 
@@ -60,8 +45,9 @@ export default function LoyaltyMetrics() {
     <Slide align="start" justify="center">
       <Eyebrow index={4} label="Fidelización y retención" />
       <Title className="max-w-4xl">Las métricas que de verdad importan</Title>
+      <Lead>Pocas, simples y accionables. Qué mira cada una y qué hacés si va mal.</Lead>
 
-      <div className="mt-12 grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid w-full gap-5 sm:grid-cols-2">
         {metrics.map((m) => (
           <Reveal key={m.name}>
             <Card className="h-full" tone={m.tone}>
@@ -69,19 +55,22 @@ export default function LoyaltyMetrics() {
                 <m.icon className={['h-5 w-5 shrink-0', toneText[m.tone]].join(' ')} strokeWidth={1.7} />
                 <h3 className="font-display text-xl font-semibold text-ink">{m.name}</h3>
               </div>
-              <div className="mt-1 text-sm text-ink-mute">{m.full}</div>
-              <p className="mt-3 text-ink-dim leading-relaxed">{m.text}</p>
+              <p className="mt-2 text-ink-dim leading-relaxed">{m.what}</p>
+              <div className="mt-4 flex items-start gap-2 rounded-lg bg-surface-2/50 p-3">
+                <ArrowRight className={['mt-0.5 h-4 w-4 shrink-0', toneText[m.tone]].join(' ')} strokeWidth={2} />
+                <p className="text-sm text-ink-dim leading-snug">
+                  <span className={['font-semibold', toneText[m.tone]].join(' ')}>Qué hacer: </span>
+                  {m.action}
+                </p>
+              </div>
             </Card>
           </Reveal>
         ))}
       </div>
 
-      <Callout className="mt-10 max-w-4xl" tone="accent" icon={Brain}>
-        Una palanca creciente es la IA predictiva: anticipar el churn y la
-        próxima compra antes de que ocurran.
-        <span className="mt-2 block font-mono text-[11px] uppercase tracking-wide text-ink-mute">
-          GoDaddy, Shopify
-        </span>
+      <Callout className="mt-8 max-w-4xl" tone="accent" icon={Target}>
+        No midas todo de golpe. Arrancá con una sola: ¿cuántos vuelven a comprar? Si ese
+        número sube, vas por buen camino.
       </Callout>
     </Slide>
   )

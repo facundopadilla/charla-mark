@@ -40,7 +40,6 @@ import WhatsApp2026 from './s2/WhatsApp2026'
 import InstagramSelling from './s2/InstagramSelling'
 
 // 03 · Omnicanalidad
-import OmniWhat from './s3/OmniWhat'
 import OmniHow from './s3/OmniHow'
 import OmniTools from './s3/OmniTools'
 
@@ -107,7 +106,6 @@ export const slides = [
 
   // 03 · Omnicanalidad
   S('d3', 'Omnicanalidad', '03 · Omnicanalidad', Divider3),
-  S('s3-what', 'Una sola experiencia', '03 · Omnicanalidad', OmniWhat),
   S('s3-how', 'Bandeja unificada e historial', '03 · Omnicanalidad', OmniHow),
   S('s3-tools', 'Plataformas para vender online', '03 · Omnicanalidad', OmniTools),
 

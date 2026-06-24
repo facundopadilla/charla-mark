@@ -1,4 +1,4 @@
-import { ShoppingBag, Video, Radio, Users } from 'lucide-react'
+import { ShoppingBag, Video, Users } from 'lucide-react'
 import Slide from '../../components/Slide'
 import { Eyebrow, Title, PointList, SourceTag, Reveal } from '../../components/ui'
 
@@ -14,14 +14,9 @@ const points = [
     text: 'Gancho en los primeros 3 segundos y captions con keywords para que el algoritmo lo entienda.',
   },
   {
-    icon: Radio,
-    title: 'Live shopping',
-    text: 'Hasta 30% de conversión durante el evento en vivo: vender y mostrar en tiempo real.',
-  },
-  {
     icon: Users,
-    title: 'Microinfluencers por comisión',
-    text: 'Alcance segmentado y de confianza, pagando por resultado en lugar de por publicación.',
+    title: 'Microinfluencers: canje o pago por video',
+    text: 'Acá casi nadie paga por resultado: lo común es el canje (producto por contenido) o un pago fijo por video. Elegí 3–5 de tu nicho.',
   },
 ]
 
